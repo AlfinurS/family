@@ -91,5 +91,36 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/style.scss";
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 200px;
+  }
+  &__input {
+    width: 100%;
+    min-height: 36px;
+    margin-top: 0px;
+    padding-left: 8px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    border: 1px solid $border-color;
+    box-shadow: inset 0px -4px 7px -2px rgba(80, 80, 80, 0.14);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  &__label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    color: $disabled-text;
+  }
+}
 </style>

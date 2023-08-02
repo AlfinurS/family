@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div><img src="" alt="" />LOGO</div>
-    <div>buttons</div>
+    <div>all rights reserved</div>
   </div>
 </template>
 
