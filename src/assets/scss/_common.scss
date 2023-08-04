@@ -10,6 +10,14 @@
   display: none;
 }
 
+.layout {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1264px;
+  box-sizing: border-box;
+}
+
 .button {
   color: $gray-color;
   font-size: 14px;
@@ -30,12 +38,17 @@
   font-weight: 500;
   line-height: 24px;
 }
+
 .btn {
   &:hover {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: $color-gray-hover;
+    border-bottom: 2px solid $color-gray-hover;
+    padding-bottom: 3px;
   }
+}
+
+.active {
+  border-bottom: 2px solid $color-primary;
+  padding-bottom: 3px;
 }
 
 .btn-primary {
@@ -71,8 +84,6 @@
 .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 768px;
-  padding-left: 16px;
-  padding-right: 16px;
+  max-width: 616px;
   box-sizing: border-box;
 }

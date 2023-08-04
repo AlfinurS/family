@@ -1,43 +1,27 @@
 <template>
   <div class="user">
-    <div class="user__wrapper">
-      <input
-        @change="sendData"
-        v-model="form.surname"
-        class="user__input"
-        type="text"
-        placeholder="Фамилия"
-      />
-    </div>
-    <div class="user__wrapper">
-      <input
-        @change="sendData"
-        v-model="form.name"
-        class="user__input"
-        type="text"
-        placeholder="Имя"
-      />
-    </div>
-    <div class="user__wrapper">
-      <input
-        @change="sendData"
-        v-model="form.phone"
-        class="user__input"
-        type="text"
-        placeholder="Телефон"
-      />
-    </div>
-    <div class="user__wrapper">
-      <input
-        @change="sendData"
-        v-model="form.email"
-        class="user__input"
-        type="text"
-        placeholder="E-mail"
-      />
-    </div>
-    <div @click="deleteuser" class="button__wrapper-close link">
-      <iconDelete></iconDelete>
+    <div class="user__container">
+      <div class="user__wrapper">
+        <input
+          @change="sendData"
+          v-model="form.name"
+          class="user__input"
+          type="text"
+          placeholder="Имя"
+        />
+      </div>
+      <div class="user__wrapper">
+        <input
+          @change="sendData"
+          v-model="form.age"
+          class="user__input"
+          type="text"
+          placeholder="Возраст"
+        />
+      </div>
+      <div @click="deleteChild" class="button__wrapper button__wrapper--delete">
+        Удалить
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +40,7 @@ export default defineComponent({
     },
   },
 
-  emits: ["sendData", "deleteUser"],
+  emits: ["sendData", "deleteChild"],
 
   data() {
     return {
@@ -69,8 +53,8 @@ export default defineComponent({
   },
 
   methods: {
-    deleteuser() {
-      this.$emit("deleteUser", this.form);
+    deleteChild() {
+      this.$emit("deleteChild", this.form);
     },
 
     sendData() {
@@ -91,36 +75,55 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.contact {
+.user {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  &__container {
+    display: grid;
+    grid-template-columns: 260px 260px 60px;
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
   &__wrapper {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 200px;
   }
   &__input {
+    display: flex;
+    max-width: 260px;
+    min-height: 56px;
     width: 100%;
-    min-height: 36px;
-    margin-top: 0px;
-    padding-left: 8px;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 18px;
-    border: 1px solid $border-color;
-    box-shadow: inset 0px -4px 7px -2px rgba(80, 80, 80, 0.14);
-    border-radius: 5px;
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border-color: #f1f1f1;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: 16px;
   }
   &__label {
     font-size: 16px;
     font-weight: 500;
     line-height: 18px;
-    color: $disabled-text;
   }
 }
+.button__wrapper {
+  cursor: pointer;
+  user-select: none;
+  &--delete {
+    display: flex;
+    align-items: center;
+    color: #01a7fd;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+@import "@/assets/scss/style.scss";
 </style>

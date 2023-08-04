@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import User from "@/components/User.vue";
+
 const routes = [
   {
     path: "/",
